@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 #include<queue>
 #include<memory>
 #include<ctime>
@@ -18,7 +18,7 @@ using SpObj = shared_ptr<Object>;
 
 int main()
 { 
-    auto cmd = [](SpObj sp1, SpObj sp2) {
+    auto cmd = [](const SpObj& sp1,const SpObj& sp2) {
         return (sp1->x_ * sp1->x_ + sp1->y_ * sp1->y_) < (sp2->x_ * sp2->x_ + sp2->y_ * sp2->y_);
     };
     priority_queue<SpObj, vector<SpObj >, decltype(cmd)> que(cmd);
