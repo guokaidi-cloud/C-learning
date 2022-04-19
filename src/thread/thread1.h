@@ -11,7 +11,7 @@ class SafeQueue{
   SafeQueue() = default;
   ~SafeQueue() = default;
 
-  void enqueue(T t){
+  void enqueue(T&& t){
       std::lock_guard<std::mutex> lock(mutex_);
       if(queue_.size() >= max_queue_size_){
           queue_.pop();
